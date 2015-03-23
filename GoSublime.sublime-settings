@@ -1,0 +1,12 @@
+{
+    "env": {"GOPATH": "/Volumes/Vagrant/golang/"},
+    "fmt_cmd": ["goimports"],
+    "on_save": [{
+        "cmd": "gs9o_open", "args": {
+            "run": ["sh",
+                "([[ -f ${PWD##*/} ]] && rm ${PWD##*/}) && (echo -n 'gofmt: ' && gofmt && echo 'OK') && (echo -n 'govet: ' && go vet && echo 'OK') && (echo -n 'Errcheck: ' && errcheck -ignore '[wW]rite' -asserts=true -blank=true ./... && echo 'OK') && (echo -n 'golint: ' && golint . && echo 'OK') && (echo -n 'go test: ' && go test -cover -race) && go build"],
+            "focus_view": false
+    }}],
+    "autocomplete_closures": true,
+    "complete_builtins": true
+}
